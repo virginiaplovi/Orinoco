@@ -1,3 +1,11 @@
 //Colors
 
 $light: #F3EAF1;
+
+//Carousel
+
+  .carousel img {
+    height: 300px!important;
+    object-fit: cover;
+    object-position: left 60%;
+  }
