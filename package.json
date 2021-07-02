@@ -4,7 +4,8 @@
   "description": "",
   "main": "scripts.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./scss/main.scss:./css/main.css --style compressed"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/virginiaplovi/Orinoco#readme",
   "dependencies": {
+    "bootstrap": "^5.0.2",
     "node-fetch": "^2.6.1"
   }
 }
