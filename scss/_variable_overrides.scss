@@ -1,11 +1,19 @@
 //Colors
 
-$light: #F3EAF1;
+$light: #f3eaf1;
+$primary: #c2859d;
 
 //Carousel
 
-  .carousel img {
-    height: 300px!important;
+.carousel img {
+  height: 400px !important;
+  object-fit: cover;
+  object-position: left 60%;
+}
+
+//Card
+
+.card-img-top {
+    height: 180px !important;
     object-fit: cover;
-    object-position: left 60%;
-  }
+}
