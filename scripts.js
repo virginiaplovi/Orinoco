@@ -1,5 +1,5 @@
 const api = 'http://localhost:3000/api/furniture';
-const singleProduct = './product.html?=';
+const singleProduct = './product.html?id=';
 
 fetch(api)
  .then((response) => response.json())
@@ -48,8 +48,8 @@ function createCard(obj) {
   card.appendChild(cardBody)
   cardBody.appendChild(name);
   cardBody.appendChild(price);
-  cardBody.appendChild(cardButton);
-  cardButton.appendChild(link);
+  cardBody.appendChild(link);
+  link.appendChild(cardButton);
   
  
   
