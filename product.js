@@ -2,16 +2,16 @@ const api = 'http://localhost:3000/api/furniture';
 const singleProduct = './product.html?id=';
 
 
-var productId = window.location.search;
-productId = productId.replace("?id=", '');
-console.log(productId); // Single product url Id
+const urlParams = new URLSearchParams(window.location.search)
+let productId = urlParams.get("id")
 
-fetch(api)
+fetch(api + productId)
  .then((response) => response.json())
  .then((data) => createCard(data));
 
 
 function createCard(obj) {
+  const container = document.getElementById('card-container');
   const row = document.createElement('div')
   const firstCol = document.createElement('div');
   const secondCol = document.createElement('div');
@@ -43,7 +43,8 @@ function createCard(obj) {
   
   img.setAttribute('src', obj.imageUrl);
   img.classList.add('card-img');
-  
+
+  container.appendChild(row);
   row.appendChild(firstCol);
   firstCol.appendChild(img);
   row.appendChild(secondCol);
