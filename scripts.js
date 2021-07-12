@@ -1,4 +1,4 @@
-const api = 'http://localhost:3000/api/furniture';
+const api = 'http://localhost:3000/api/furniture/';
 const singleProduct = './product.html?id=';
 
 fetch(api)
@@ -21,7 +21,7 @@ function createCard(obj) {
   
   const img = document.createElement('img');
   
-  const cardBody = document.createElement('div')
+  const cardBody = document.createElement('div');
   const name = document.createElement('h4');
   const price = document.createElement('p');
   const cardButton = document.createElement('button');
@@ -45,7 +45,7 @@ function createCard(obj) {
   
   col.appendChild(card);
   card.appendChild(img);
-  card.appendChild(cardBody)
+  card.appendChild(cardBody);
   cardBody.appendChild(name);
   cardBody.appendChild(price);
   cardBody.appendChild(link);
