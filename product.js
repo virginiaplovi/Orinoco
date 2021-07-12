@@ -1,5 +1,4 @@
 const api = 'http://localhost:3000/api/furniture/';
-const singleProduct = './product.html?id=';
 
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -22,11 +21,30 @@ function createCard(obj) {
   const name = document.createElement('h4');
   const description = document.createElement('p');
   const price = document.createElement('p');
-  const cardButton = document.createElement('button');
+  const addButton = document.createElement('button');
+
+//Varnish dropdown menù
+  const dropdownContainer = document.createElement('form');
+  const dropdownLabel = document.createElement('label');
+  const dropdownOptions = document.createElement('select');
+
+  dropdownContainer.classList.add('form-group', 'py-2');
+  dropdownLabel.setAttribute('for', 'varnish');
+  dropdownLabel.innerText = 'Select an option:';
+  dropdownOptions.classList.add('form-control');
+  dropdownOptions.setAttribute('id', 'varnish');
+
+  dropdownContainer.appendChild(dropdownLabel);
+  dropdownContainer.appendChild(dropdownOptions);
   
-  const link = document.createElement('a');
-  link.setAttribute('href', `${singleProduct}${obj._id}`);
-  
+  for (let i=0; i<obj.varnish.length; i++) {
+    let option = document.createElement('option');
+    option.innerText = obj.varnish[i];
+    option.setAttribute('value', obj.varnish);
+    dropdownOptions.appendChild(option);
+  }
+
+
   row.classList.add('row', 'no-gutters');
   firstCol.classList.add('col-md-4');
   secondCol.classList.add('col-md-8');
@@ -37,9 +55,9 @@ function createCard(obj) {
   description.classList.add('card-text');
   price.innerText = '£' + obj.price;
   price.classList.add('card-text');
-  cardButton.classList.add('btn', 'btn-outline-primary');
-  cardButton.setAttribute('type', 'button');
-  cardButton.innerText = 'Add to Cart';
+  addButton.classList.add('btn', 'btn-outline-primary');
+  addButton.setAttribute('type', 'button');
+  addButton.innerText = 'Add to Cart';
   
   img.setAttribute('src', obj.imageUrl);
   img.classList.add('card-img');
@@ -51,9 +69,10 @@ function createCard(obj) {
   secondCol.appendChild(cardBody);
   cardBody.appendChild(name);
   cardBody.appendChild(description);
+  cardBody.appendChild(dropdownContainer);
   cardBody.appendChild(price);
-  cardBody.appendChild(cardButton);
-  cardButton.appendChild(link);
+  cardBody.appendChild(addButton);
+  
   
  
   
