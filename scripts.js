@@ -34,7 +34,7 @@ function createCard(obj) {
   cardBody.classList.add('card-body');
   name.innerText = obj.name;
   name.classList.add('card-title');
-  price.innerText = '£' + obj.price;
+  price.innerText = '£' + obj.price.toString().substring(0, 3);
   price.classList.add('card-text');
   cardButton.classList.add('btn', 'btn-outline-primary');
   cardButton.setAttribute('type', 'button');
