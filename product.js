@@ -42,7 +42,6 @@ function createCard(obj) {
   for (let i=0; i<obj.varnish.length; i++) {
     let option = document.createElement('option');
     option.innerText = obj.varnish[i];
-    option.setAttribute('value', obj.varnish);
     dropdownOptions.appendChild(option);
   }
 //--Varnish dropdown menu end
@@ -65,6 +64,38 @@ function createCard(obj) {
   img.setAttribute('src', obj.imageUrl);
   img.classList.add('card-img');
 
+  // Save Product Data To The LocalStorage || Add to Cart
+  addButton.addEventListener('click', () => {
+    let cartContents = [];
+    const localStorageContent = localStorage.getItem('cart');
+    if (localStorageContent === null) {
+      cartContents = [];
+    } else {
+      cartContents = JSON.parse(localStorageContent);
+    }
+    let singleProduct = {
+      imageUrl: obj.imageUrl,
+      price: obj.price,
+      name: obj.name,
+      description: obj.description,
+      varnish: dropdownOptions.value,
+      prodId: obj._id,
+      quantity: 1
+    };
+    cartContents.push(singleProduct);
+    localStorage.setItem('cart', JSON.stringify(cartContents));
+  
+    // add Toast
+    let confirmation = document.getElementById('confirmation');
+    confirmation.innerHTML = `Added to cart.`;
+    confirmation.classList.add('confirme-feedback--visible');
+    confirmation.hideTimeout = setTimeout(() => {
+      confirmation.classList.remove('confirme-feedback--visible');
+    }, 3000);
+  
+  });
+
+
 //--Append elements to the page
   container.appendChild(row);
   row.appendChild(firstCol);
@@ -78,34 +109,3 @@ function createCard(obj) {
   cardBody.appendChild(addButton);
   return row;
 }
-
-// Put Product Data To The LocalStorage
-let addButton = document.getElementById('addButton');
-addButton.addEventListener('click', () => {
-  let cartContents = [];
-  const localStorageContent = localStorage.getItem('cart');
-  if (localStorageContent === null) {
-    cartContents = [];
-  } else {
-    cartContents = JSON.parse(localStorageContent);
-  }
-  let singleProduct = {
-    imageUrl: obj.imageUrl,
-    price: obj.price,
-    name: obj.name,
-    selectVarnish: varnish.value,
-    prodId: obj._id,
-    quantity: 1
-  };
-  cartContents.push(singleProduct);
-  localStorage.setItem('cart', JSON.stringify(cartContents));
-
-  // add Toast
-  let confirmation = document.getElementById('confirmation');
-  confirmation.innerHTML = `Added to cart.`;
-  confirmation.classList.add('confirme-feedback--visible');
-  confirmation.hideTimeout = setTimeout(() => {
-    confirmation.classList.remove('confirme-feedback--visible');
-  }, 3000);
-
-});
