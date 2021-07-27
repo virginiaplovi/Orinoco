@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/main.css" />
-    
+    <script src="https://kit.fontawesome.com/6d0a3be7f8.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
@@ -31,10 +31,10 @@
                     <div id="navbarContent" class="collapse navbar-collapse">
                         <ul class="navbar-nav">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Home</a>
+                                <a class="nav-link" href="index.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Cart</a>
+                                <a class="nav-link" href="cart.html">Cart</a>
                             </li>
                         </ul>
                     </div>
@@ -53,17 +53,29 @@
 
                     </ol>
                     <div class="carousel-inner">
-                        <div class="carousel-item active" data-interval="3500">
+                        <div class="carousel-item active">
                             <img src="./images/kari-shea-tOVmshavtoo-unsplash.jpg" class="d-block w-100"
                                 alt="Description">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Create your space.</h5>
+                                <p>Discover our furniture to create a beautiful home.</p>
+                            </div>
                         </div>
-                        <div class="carousel-item" data-interval="3500">
+                        <div class="carousel-item">
                             <img src="./images/darren-richardson-4_g9MRYUC3o-unsplash.jpg" class="d-block w-100 "
                                 alt="description">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Stay tuned.</h5>
+                                <p>Our new collection is coming soon.</p>
+                            </div>
                         </div>
-                        <div class="carousel-item" data-interval="3500">
+                        <div class="carousel-item">
                             <img src="./images/natural-goods-berlin-KhUIvD_z3Hw-unsplash.jpg" class="d-block w-100"
                                 alt="description">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Simple. Refined.</h5>
+                                <p>All made by hand.</p>
+                            </div>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -88,17 +100,35 @@
             </div>
         </div>
     </div>
-    <div class="bg-light mt-5">
+    <div class="mt-5 pt-3 pb-3 footer">
         <div class="container">
             <div class="row">
-                <div class="col">
-                    <ul class="list-inline text-center">
-                        <li class="list-inline-item"><a href="#">About Us</a></li>
-                        <li class="list-inline-item">&middot;</li>
-                        <li class="list-inline-item"><a href="#">Privacy</a></li>
-                        <li class="list-inline-item">&middot;</li>
-                        <li class="list-inline-item"><a href="#">Terms of Use</a></li>
+                <div class="col-lg-5 col-xs-12 about-company">
+                    <h2>Orinoco</h2>
+                    <p class="pr-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
+                        ante mollis quam tristique convallis </p>
+                    <p><a href="#"><i class="fa fa-facebook-square mr-1"></i></a><a href="#"><i
+                                class="fa fa-linkedin-square"></i></a></p>
+                </div>
+                <div class="col-lg-3 col-xs-12 links">
+                    <h4 class="mt-lg-0 mt-sm-3">Links</h4>
+                    <ul class="m-0 p-0">
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Terms of use</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Delivery</a></li>
                     </ul>
+                </div>
+                <div class="col-lg-4 col-xs-12 location">
+                    <h4 class="mt-lg-0 mt-sm-4">Location</h4>
+                    <p>22, Lorem ipsum dolor, consectetur adipiscing</p>
+                    <p class="mb-0"><i class="fa fa-phone mr-3"></i>(123) 456-789</p>
+                    <p><i class="fa fa-envelope-o mr-3"></i>info@orinoco.com</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col copyright">
+                    <p class=""><small>© 2021. All Rights Reserved.</small></p>
                 </div>
             </div>
         </div>

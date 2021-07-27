@@ -5,6 +5,7 @@ $font-family-sans-serif: "Quicksand", sans-serif;
 
 $light: #f3eaf1;
 $primary: #c2859d;
+$dark: black;
 
 //Carousel
 
@@ -13,10 +14,45 @@ $primary: #c2859d;
   object-fit: cover;
   object-position: left 60%;
 }
-
+.carousel-caption{
+  margin-top: 20%;
+  margin-bottom: 20%;
+  background-color: rgb($primary, 0.2);
+}
 //Card
 
 .card-img-top {
     height: 180px !important;
     object-fit: cover;
+}
+
+//Footer
+
+.footer{
+  background: $light;
+  color: $dark;
+  
+  .links{
+    ul {list-style-type: none;}
+    li a{
+      color: gray;
+      transition: color .2s;
+      &:hover{
+        text-decoration:none;
+        color: $primary;
+        }
+    }
+  }  
+  .about-company{
+    i{font-size: 25px;}
+    a{
+      color: gray;
+      transition: color .2s;
+      &:hover{color: $primary}
+    }
+  } 
+  .location{
+    i{font-size: 14px; color: gray;}
+  }
+  .copyright p{border-top:1px solid rgba(255,255,255,.1);} 
 }
