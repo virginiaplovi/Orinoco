@@ -67,35 +67,41 @@ function createCard(obj) {
   // Save Product Data To The LocalStorage || Add to Cart
   addButton.addEventListener('click', () => {
     singleProduct = {
-        imageUrl: obj.imageUrl,
-        price: obj.price,
-        name: obj.name,
-        description: obj.description,
-        varnish: dropdownOptions.value,
-        prodId: obj._id,
-        quantity: 1
+      imageUrl: obj.imageUrl,
+      price: obj.price,
+      name: obj.name,
+      description: obj.description,
+      varnish: dropdownOptions.value,
+      prodId: obj._id,
+      quantity: 1
 
     }
     //step 1 retrieve the cart in localStorage
-    let cartContents = JSON.parse(localStorage.getItem('cart'));
-   
-    //step 2 check if the furniture is already in the list
-    if(cartContents.length == 0){
-        cartContents.push(singleProduct);
-    } else {
-        //step 2a if the product is already in the cart, then update the quantity +1
-        let index = cartContents.findIndex(o => o.prodId == singleProduct.prodId);
-        
-        if (index != -1) {
-            cartContents[index].quantity += 1;
-        } else {
-                //step 2b otherwise add the furniture as a new entry
-            cartContents.push(singleProduct);
 
-        }
+    let cartContents = [];
+    if (localStorage.getItem('cart') === null) {
+      cartContents = [];
+    } else {
+      cartContents = JSON.parse(localStorage.getItem('cart'));
     }
 
- localStorage.setItem('cart', JSON.stringify(cartContents));
+    //step 2 check if the furniture is already in the list
+    if (cartContents.length == 0) {
+      cartContents.push(singleProduct);
+    } else {
+      //step 2a if the product is already in the cart, then update the quantity +1
+      let index = cartContents.findIndex(o => o.prodId == singleProduct.prodId);
+
+      if (index != -1) {
+        cartContents[index].quantity += 1;
+      } else {
+        //step 2b otherwise add the furniture as a new entry
+        cartContents.push(singleProduct);
+
+      }
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cartContents));
 
     // add Toast
     const confirmation = document.getElementById('confirmation');
@@ -116,7 +122,7 @@ function createCard(obj) {
     toastClose.setAttribute('data-dismiss', 'alert');
     toastClose.setAttribute('aria-label', 'close');
     toastClose.classList.add('close');
-    const toastSpan = document.createElement ('span');
+    const toastSpan = document.createElement('span');
     toastSpan.setAttribute('aria-hidden', 'true');
     toastSpan.innerHTML = '×';
 
