@@ -15,12 +15,13 @@ if (productInStorage) {
         let varnish = document.createElement('td');
         let quantity = document.createElement('td');
         let price = document.createElement('td');
+        let removeProduct = document.createElement('td');
 
         // Get values
         name.innerHTML = productCart.name;
         varnish.innerHTML = productCart.varnish;
         quantity.innerHTML = `<input type="number" id="quantity" name="quantity" min="1" value ="${productCart.quantity}" onclick="inputQuantity(${i}, event.target.value)">`;
-
+        removeProduct.innerHTML = `<button class="btn-del" id='remove' onclick='removeProduct(${i})'>X</button>`;
         let priceParse = parseInt(productCart.price.toString().substring(0, 3));
         price.innerHTML = '£' + (priceParse * productCart.quantity);
 
@@ -30,6 +31,7 @@ if (productInStorage) {
         tr.appendChild(varnish);
         tr.appendChild(quantity);
         tr.appendChild(price);
+        tr.appendChild(removeProduct);
 
         totalPrice();
     }
@@ -44,6 +46,7 @@ function inputQuantity(index, value) {
     localStorage.setItem('cart', JSON.stringify(productInStorage));
 
     totalPrice();
+    location.reload();
 }
 //Calculate Total price of the Items in the cart
 function totalPrice() {
@@ -62,3 +65,13 @@ function totalPrice() {
         sessionStorage.setItem('Total', JSON.stringify(totalCartPrice));
     }
 }
+
+//Remove product from Local Storage
+function removeProduct(index) {
+    productInStorage.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(productInStorage));
+    
+   
+    totalPrice();
+    location.reload();
+  }

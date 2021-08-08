@@ -42,15 +42,40 @@
             </div>
         </div>
     </div>
-
+    <!-- Confirmation Toast -->
     <div class="container">
-        <div id="confirmation" class="confirmation"></div>
+        <div class="row">
+            <div class="col my-2">
+                <div id="confirmation" class="alert alert-secondary alert-dismissible fade shadow-sm" role="alert">
+                    
+                </div>
+            </div>
+        </div>
+    <!-- Product Card -->
         <div class="card my-4 p-4 shadow">
             <div id="card-container">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img id="product-img" class="card-img">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h4 id="product-name" class="card-title"></h4>
+                            <p id="product-description" class="card-text"></p>
+                            <form class="dropdownContainer form-group py-2">
+                                <label class="dropdownLabel" for="varnish">Select an option:</label>
+                                <select id="varnish" class="form-control"></select>
+                            </form>
+                            <p id="product-price" class="card-text"></p>
+                            <button id="addButton" class="btn btn-outline-primary" type="button">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
     </div>
+    <!-- Footer -->
     <div class="mt-5 pt-3 pb-3 footer">
         <div class="container">
             <div class="row">
