@@ -10,7 +10,7 @@ function addNumCart() {
   let productInStorage = JSON.parse(localStorage.getItem('cart'));
     let productNumber = document.getElementById('product-number');
     if (productInStorage) {
-        productNumber.innerHTML = productInStorage.length;
+        productNumber.setAttribute('data-count', productInStorage.length);
     }
 }
 

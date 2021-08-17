@@ -34,8 +34,13 @@
                                 <a class="nav-link" href="index.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="cart.html">Cart <i class="fas fa-shopping-cart"></i><span
-                                        class="product-number" id="product-number">0</span></a>
+                                <a class="nav-link" href="cart.html">Cart</a>
+                            </li>
+                            <li class="nav-item">
+                                <span class="fa-stack has-badge" id="product-number" data-count="0">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                                </span>
                             </li>
                         </ul>
                     </div>
@@ -49,11 +54,13 @@
         <div class="card w-75 border-primary my-5 mx-auto">
             <div class="card-header text-right">Order ID: <span id="order-id" class="font-italic"></span></div>
             <div class="card-body text-center">
-                <h5 class="card-title text-success mb-5">Thank you <span id="customer-name"></span> for your purchase!</h5>
+                <h5 class="card-title text-success mb-5">Thank you <span id="customer-name"></span> for your purchase!
+                </h5>
                 <p class="card-text">Your order has been placed and is being processed.</p>
                 <p class="card-text">You will receive an email with the order details and tracking info.</p>
                 <div class="my-3 mx-auto">
-                    <button type="button" id="back-button" class="btn btn-outline-primary">Back to the homepage<i class="fas fa-reply"></i></button>
+                    <button type="button" id="back-button" class="btn btn-outline-primary">Back to the homepage<i
+                            class="fas fa-reply"></i></button>
                 </div>
             </div>
         </div>

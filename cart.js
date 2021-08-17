@@ -92,11 +92,11 @@ function removeProduct(index) {
 
 //Cart Icon Number
 function addNumCart() {
-    let productNumber = document.getElementById('product-number');
-    if (productInStorage) {
-        productNumber.innerHTML = productInStorage.length;
-    }
-}
+      let productNumber = document.getElementById('product-number');
+      if (productInStorage) {
+          productNumber.setAttribute('data-count', productInStorage.length);
+      }
+  }
 
 //POST contact and product data to API
 
