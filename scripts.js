@@ -52,6 +52,15 @@ function createCard(obj) {
   link.appendChild(cardButton);
   
  
-  
+  addNumCart();
   return col;
+}
+
+//Cart Icon Number
+function addNumCart() {
+  let productInStorage = JSON.parse(localStorage.getItem('cart'));
+    let productNumber = document.getElementById('product-number');
+    if (productInStorage) {
+        productNumber.innerHTML = productInStorage.length;
+    }
 }

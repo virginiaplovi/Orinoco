@@ -32,12 +32,12 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div id="navbarContent" class="collapse navbar-collapse">
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav ml-auto">
                             <li class="nav-item ">
                                 <a class="nav-link" href="index.html">Home</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="cart.html">Cart</a>
+                                <a class="nav-link" href="cart.html">Cart <i class="fas fa-shopping-cart"><span class="product-number" id="product-number">0</span></i></a>
                             </li>
                         </ul>
                     </div>
@@ -49,21 +49,58 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 mt-5">
-                <h1>Your Cart</h1>
+                <div id="cart-products"></div>
+                <h2 id="cart-heading">Your Cart</h2>
             </div>
-            <div class="col-md-12 mt-4">
-                <table class="table table-bordered" id="cart-items" >
+            <div class="col-md-12 mt-4" id="table-content">
+                <table class="table table-bordered" id="cart-items">
                     <tr>
                         <th>Product</th>
-                        <th>Varnish</th> 
+                        <th>Varnish</th>
                         <th>Quantity</th>
                         <th>Price</th>
                         <th>Delete</th>
-                      </tr>
+                    </tr>
                 </table>
                 <p id="total" class="text-right"></p>
             </div>
         </div>
+    </div>
+    <div class="container" id="order-form">
+        <div class="row">
+            <div class="col">
+                <h2>Product Order Form</h2>
+                <form action="" method="">
+                    <div class="field col-9">
+                        <div class="form-group">
+                            <label for="firstName">First Name<span class="required">*</span></label>
+                            <input id="firstName" type="text" class="form-control" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name<span class="required">*</span></label>
+                            <input id="lastName" type="text" class="form-control" name="lastName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Delivery Address<span class="required">*</span></label>
+                            <input id="address" type="text" class="form-control" name="address"
+                                placeholder="House number and street name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City <span class="required">*</span></label>
+                            <input id="city" type="text" class="form-control" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input id="email" type="email" class="form-control" name="email" required>
+                        </div>
+                    </div>
+                    <a href="#"><button id="submitOrder" type="submit" class="btn btn-outline-primary">Place Order</button></a>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
     </div>
     <div class="mt-5 pt-3 pb-3 footer">
         <div class="container">

@@ -5,6 +5,15 @@ let product = {};
 const urlParams = new URLSearchParams(window.location.search);
 let productId = urlParams.get("id");
 
+//Cart Icon Number
+function addNumCart() {
+  let productInStorage = JSON.parse(localStorage.getItem('cart'));
+    let productNumber = document.getElementById('product-number');
+    if (productInStorage) {
+        productNumber.innerHTML = productInStorage.length;
+    }
+}
+
 //Fetch Single Product by Id
 fetch(api + productId)
   .then((response) => response.json())
@@ -35,12 +44,13 @@ function createCard(obj) {
   // Save Product Data To The LocalStorage || Add to Cart
   addButton.addEventListener('click', () => {
     singleProduct = {
+      _id: obj._id,
       imageUrl: obj.imageUrl,
       price: obj.price,
       name: obj.name,
       description: obj.description,
       varnish: optionsContainer.value,
-      prodId: obj._id,
+      
       quantity: 1
 
     }
@@ -58,7 +68,7 @@ function createCard(obj) {
       cartContents.push(singleProduct);
     } else {
       //step 2a if the product is already in the cart, then update the quantity +1
-      let index = cartContents.findIndex(o => o.prodId == singleProduct.prodId);
+      let index = cartContents.findIndex(o => o._id == singleProduct._id);
 
       if (index != -1) {
         cartContents[index].quantity += 1;
@@ -70,12 +80,11 @@ function createCard(obj) {
     }
 
     localStorage.setItem('cart', JSON.stringify(cartContents));
-
     // add text and class 'show' to Toast
     const toastAlert = document.getElementById('confirmation');
     toastAlert.classList.add('show');
-    toastAlert.innerHTML = 'The item ' + obj.name + ' has been added to your cart' + '<button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span></button>';
+    toastAlert.innerHTML = 'The item ' + obj.name + ' has been added to your <a href="cart.html">cart</a>' + '<button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span></button>';
+    addNumCart();
   });
-
-
+addNumCart();
 }
