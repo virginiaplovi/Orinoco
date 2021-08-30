@@ -3,7 +3,7 @@ let productInStorage = JSON.parse(localStorage.getItem('cart'));
 
 //Retrive from LocalStorage
 
-if (productInStorage) {
+if (productInStorage.length > 1 || productInStorage !== null) {
     for (let i = 0; i < productInStorage.length; i++) {
         const productCart = productInStorage[i];
         const cartTable = document.getElementById('cart-items');
@@ -92,11 +92,11 @@ function removeProduct(index) {
 
 //Cart Icon Number
 function addNumCart() {
-      let productNumber = document.getElementById('product-number');
-      if (productInStorage) {
-          productNumber.setAttribute('data-count', productInStorage.length);
-      }
-  }
+    let productNumber = document.getElementById('product-number');
+    if (productInStorage) {
+        productNumber.setAttribute('data-count', productInStorage.length);
+    }
+}
 
 //POST contact and product data to API
 

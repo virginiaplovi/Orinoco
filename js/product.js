@@ -5,13 +5,13 @@ let product = {};
 const urlParams = new URLSearchParams(window.location.search);
 let productId = urlParams.get("id");
 
-//Cart Icon Number
+//Header cart icon number function
 function addNumCart() {
   let productInStorage = JSON.parse(localStorage.getItem('cart'));
-    let productNumber = document.getElementById('product-number');
-    if (productInStorage) {
-        productNumber.setAttribute('data-count', productInStorage.length);
-    }
+  let productNumber = document.getElementById('product-number');
+  if (productInStorage) {
+    productNumber.setAttribute('data-count', productInStorage.length);
+  }
 }
 
 //Fetch Single Product by Id
@@ -35,8 +35,8 @@ function createCard(obj) {
   let optionsContainer = document.getElementById('varnish');
 
   // Loop to generate Varnish Options
- for (let i = 0; i < obj.varnish.length; i++) {
-    
+  for (let i = 0; i < obj.varnish.length; i++) {
+
     let option = document.createElement('option');
     option.innerText = obj.varnish[i];
     optionsContainer.appendChild(option);
@@ -50,11 +50,11 @@ function createCard(obj) {
       name: obj.name,
       description: obj.description,
       varnish: optionsContainer.value,
-      
+
       quantity: 1
 
     }
-    //step 1 retrieve the cart in localStorage
+    //retrieve the cart in localStorage
 
     let cartContents = [];
     if (localStorage.getItem('cart') === null) {
@@ -63,11 +63,11 @@ function createCard(obj) {
       cartContents = JSON.parse(localStorage.getItem('cart'));
     }
 
-    //step 2 check if the furniture is already in the list
+    // if the product is not in the cart add it
     if (cartContents.length == 0) {
       cartContents.push(singleProduct);
     } else {
-      //step 2a if the product is already in the cart, then update the quantity +1
+      // if the product with same id is already in the cart, then update the quantity +1
       let index = cartContents.findIndex(o => o._id == singleProduct._id);
 
       if (index != -1) {
@@ -86,5 +86,5 @@ function createCard(obj) {
     toastAlert.innerHTML = 'The item ' + obj.name + ' has been added to your <a href="cart.html">cart</a>' + '<button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span></button>';
     addNumCart();
   });
-addNumCart();
+  addNumCart();
 }
